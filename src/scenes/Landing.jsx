@@ -2,6 +2,7 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import profilePic from "../assets/profile-image.png";
+import SocialMediaIcons from "../components/SocialMediaIcons";
 
 const Landing = ({ setSelectedPage }) => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
@@ -19,7 +20,7 @@ const Landing = ({ setSelectedPage }) => {
           >
             <img
               alt="profile"
-              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-full max-w-[400px] md:max-w-[600px]"
+              className="hover:filter hover:saturate-150 transition duration-1000 z-10 w-full max-w-[400px] md:max-w-[600px]"
               src={profilePic}
             />
           </div>
@@ -47,17 +48,57 @@ const Landing = ({ setSelectedPage }) => {
             Richard {""}
             <span
               className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush
-              before:absolute before:-left-[25px] before:-top-[120px] before:z-[-1]"
+              before:absolute before:-left-[40px] before:-top-[120px] before:z-[-1]"
             >
               Hadzhiev
             </span>
           </p>
           <p className="mt-10 mb-7 text-sm text-center md:text-start">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            praesentium fugit quas reprehenderit. Quod hic quos quae unde totam
-            nulla in numquam odit eos, perferendis quibusdam asperiores
-            repudiandae soluta vero.
+            I am a motivated Fullstack Web Developer, excited to continue
+            learning and eager to apply my skills to real-world projects.
           </p>
+        </motion.div>
+
+        <motion.div
+          className="flex mt-5 justify-center md:justify-start"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
+          <AnchorLink
+            className="bg-gradient-rainblue text-deep-blue rounded-sm py-3 px-7 font-semibold hover:bg-blue hover:text-white transition duration-500"
+            onClick={() => setSelectedPage("contact")}
+            href="#contact"
+          >
+            Contact Me
+          </AnchorLink>
+          <AnchorLink
+            className="rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5"
+            onClick={() => setSelectedPage("contact")}
+            href="#contact"
+          >
+            <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center font-playfair px-10">
+              Let's Talk.
+            </div>
+          </AnchorLink>
+        </motion.div>
+        <motion.div
+          className="flex mt-5 justify-center md:justify-start"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
+          <SocialMediaIcons />
         </motion.div>
       </div>
     </section>
